@@ -1,0 +1,16 @@
+/*
+ * mylib.h
+ *
+ *  Created on: Nov 15, 2024
+ *      Author: user
+ */
+
+#ifndef INC_MYLIB_H_
+#define INC_MYLIB_H_
+
+// int __io_getchar(void);
+int __io_putchar(int ch);
+void StandBy();
+void ProgramStart(char* str);
+
+#endif /* INC_MYLIB_H_ */
