@@ -1,75 +1,10 @@
-16:48:54 **** Incremental Build of configuration Debug for project Test003-UART ****
+12:55:55 **** Incremental Build of configuration Debug for project Test003-UART ****
 make -j24 all 
-arm-none-eabi-gcc "C:/Users/user/source/repos/STM32/myLib/myLib.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myLib.d" -MT"Core/Src/myLib.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myLib.o"
-C:/Users/user/source/repos/STM32/myLib/myLib.c: In function '__io_putchar':
-C:/Users/user/source/repos/STM32/myLib/myLib.c:12:36: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
-   12 |         HAL_UART_Transmit(&huart2, &ch, 1, 10); // size(byte), timeout(ms)
-      |                                    ^~~
-      |                                    |
-      |                                    int *
-In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
-                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from C:/Users/user/source/repos/STM32/myLib/myLib.c:7:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:745:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'int *'
-  745 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~
-C:/Users/user/source/repos/STM32/myLib/myLib.c: In function 'ProgramStart':
-C:/Users/user/source/repos/STM32/myLib/myLib.c:20:9: warning: implicit declaration of function 'cls' [-Wimplicit-function-declaration]
-   20 |         cls();
-      |         ^~~
-C:/Users/user/source/repos/STM32/myLib/myLib.c:21:9: warning: implicit declaration of function 'Cursor' [-Wimplicit-function-declaration]
-   21 |         Cursor(0, 0);
-      |         ^~~~~~
-C:/Users/user/source/repos/STM32/myLib/myLib.c:22:9: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
-   22 |         printf("Program Start - %s\r\n", str);
-      |         ^~~~~~
-C:/Users/user/source/repos/STM32/myLib/myLib.c:8:1: note: include '<stdio.h>' or provide a declaration of 'printf'
-    7 | #include "main.h"
-  +++ |+#include <stdio.h>
-    8 | extern UART_HandleTypeDef huart2;
-C:/Users/user/source/repos/STM32/myLib/myLib.c:22:9: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
-   22 |         printf("Program Start - %s\r\n", str);
-      |         ^~~~~~
-C:/Users/user/source/repos/STM32/myLib/myLib.c:22:9: note: include '<stdio.h>' or provide a declaration of 'printf'
-C:/Users/user/source/repos/STM32/myLib/myLib.c: At top level:
-C:/Users/user/source/repos/STM32/myLib/myLib.c:26:6: warning: conflicting types for 'cls'; have 'void()'
-   26 | void cls() {
-      |      ^~~
-C:/Users/user/source/repos/STM32/myLib/myLib.c:20:9: note: previous implicit declaration of 'cls' with type 'void()'
-   20 |         cls();
-      |         ^~~
-C:/Users/user/source/repos/STM32/myLib/myLib.c: In function 'cls':
-C:/Users/user/source/repos/STM32/myLib/myLib.c:27:9: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
-   27 |         printf("\033[2J");
-      |         ^~~~~~
-C:/Users/user/source/repos/STM32/myLib/myLib.c:27:9: note: include '<stdio.h>' or provide a declaration of 'printf'
-C:/Users/user/source/repos/STM32/myLib/myLib.c: At top level:
-C:/Users/user/source/repos/STM32/myLib/myLib.c:29:6: warning: conflicting types for 'Cursor'; have 'void(int,  int)'
-   29 | void Cursor(int x, int y) {
-      |      ^~~~~~
-C:/Users/user/source/repos/STM32/myLib/myLib.c:21:9: note: previous implicit declaration of 'Cursor' with type 'void(int,  int)'
-   21 |         Cursor(0, 0);
-      |         ^~~~~~
-C:/Users/user/source/repos/STM32/myLib/myLib.c: In function 'Cursor':
-C:/Users/user/source/repos/STM32/myLib/myLib.c:31:9: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
-   31 |         printf("\033[%d;%dH", y, x);
-      |         ^~~~~~
-C:/Users/user/source/repos/STM32/myLib/myLib.c:31:9: note: include '<stdio.h>' or provide a declaration of 'printf'
-C:/Users/user/source/repos/STM32/myLib/myLib.c:30:14: warning: unused variable 'buf' [-Wunused-variable]
-   30 |         char buf[20];
-      |              ^~~
-arm-none-eabi-gcc -o "Test003-UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\user\source\repos\STM32\Test003-UART\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Test003-UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Test003-UART.elf
- 
 arm-none-eabi-size  Test003-UART.elf 
-arm-none-eabi-objdump -h -S Test003-UART.elf  > "Test003-UART.list"
    text	   data	    bss	    dec	    hex	filename
   31592	    476	   1980	  34048	   8500	Test003-UART.elf
 Finished building: default.size.stdout
  
-Finished building: Test003-UART.list
- 
 
-16:48:54 Build Finished. 0 errors, 10 warnings. (took 536ms)
+12:55:55 Build Finished. 0 errors, 0 warnings. (took 236ms)
 
