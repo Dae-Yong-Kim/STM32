@@ -75,7 +75,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) { //Sampling complete
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	HAL_ADC_Start_IT(&hadc1); // 1-time
+	HAL_ADC_Start_IT(&hadc1);
 }
 /* USER CODE END 0 */
 
