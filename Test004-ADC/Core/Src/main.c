@@ -102,6 +102,7 @@ int main(void)
   Cursor(30, 20);
   printf("*");
   Cursor(0, 0);
+
   while (1)
   {
     /* USER CODE END WHILE */
@@ -111,7 +112,7 @@ int main(void)
 	  if(success) {
 		  cls();
 		  Cursor(0, 0);
-		  printf("?ƒ¾(ï¼ âŒ’?–½?Œ’ï¼?)ï¾?  Success~~~!!!  ?ƒ¾(ï¼ âŒ’?–½?Œ’ï¼?)ï¾?\r\n;");
+		  printf("?ï¿½ï¿½(ï¼ âŒ’?ï¿½ï¿½?ï¿½ï¿½ï¿½?)ï¿½?  Success~~~!!!  ?ï¿½ï¿½(ï¼ âŒ’?ï¿½ï¿½?ï¿½ï¿½ï¿½?)ï¿½?\r\n;");
 	  } else {
 		  HAL_ADC_Start(&hadc1);
 		  HAL_ADC_PollForConversion(&hadc1, 10); // 1 time-sampling
