@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "C:\Users\user\source\repos\STM32\myLib\Inc\uSonic.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,40 +59,6 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void microDelay(int us){
-	/*int t1 = htim2.Instance->CNT;
-	while((htim2.Instance->CNT - t1 < us));*/
-
-	htim2.Instance->CNT = 0;
-	while((htim2.Instance->CNT < us));
-}
-
-void Trigger() {
-	HAL_GPIO_WritePin(Trig_GPIO_Port, Trig_Pin, 0);
-	microDelay(10);
-	HAL_GPIO_WritePin(Trig_GPIO_Port, Trig_Pin, 1);
-	microDelay(10);
-	HAL_GPIO_WritePin(Trig_GPIO_Port, Trig_Pin, 0);
-}
-
-double Distance() {
-	int t1, t2;
-
-	Trigger();
-
-	htim2.Instance->CNT = 0;
-	while((HAL_GPIO_ReadPin(Echo_GPIO_Port, Echo_Pin) == 0)) {
-		if(htim2.Instance->CNT > 30000)	return -1;
-	}
-	t1 = htim2.Instance->CNT;
-	while((HAL_GPIO_ReadPin(Echo_GPIO_Port, Echo_Pin) == 1)) {
-		if(htim2.Instance->CNT > t1 + 60000)	return -1;
-	}
-	t2 = htim2.Instance->CNT;
-
-	double ret = (t2 - t1) * 0.17;
-	return ret;
-}
 /* USER CODE END 0 */
 
 /**
@@ -136,7 +102,7 @@ int main(void)
   {
 
 	  double dist = Distance();
-	  printf("DIstance : %f\r\n", dist);
+	  printf("Distance : %f\r\n", dist);
 	  HAL_Delay(500);
 
     /* USER CODE END WHILE */
