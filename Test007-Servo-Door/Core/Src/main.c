@@ -125,12 +125,21 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  int min = 850, max = 5150;
   htim1.Instance->CCR1 = 10;
   while (1)
   {
-	  printf("Distance: %f\r\n", dist);
-	  if(dist < 500)	htim3.Instance->CCR2 = 1000;
-	  else				htim3.Instance->CCR2 = 5000;
+	  Cursor(0, 5);
+	  printf("Distance : %7.2f\r\n", dist);
+	  if(dist < 0) {
+		  htim3.Instance->CCR2 = min;
+	  }
+	  else if(dist < 500) {
+		  htim3.Instance->CCR2 = max;
+	  }
+	  else {
+		  htim3.Instance->CCR2 = min;
+	  }
 	  HAL_Delay(20);
     /* USER CODE END WHILE */
 
