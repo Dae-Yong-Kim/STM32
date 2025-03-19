@@ -17,7 +17,7 @@ int i2c_init(I2C_HandleTypeDef *p) {
 
 int i2c_scan() {
 	if(hi2c == NULL) return;
-	for(int addr = 0; addr < 128; addr++) {
+	for(int addr = 0; addr < 256; addr++) {
 		if(HAL_I2C_IsDeviceReady(hi2c, addr, 1, 10) == HAL_OK) {
 			printf("  %02x", addr);
 		} else {
@@ -127,4 +127,22 @@ void lcd_print_joystick_float(double val, int ln) {
 	}
 
 	lcd_printEx(str, ln);
+}
+
+void lcd_print_helloWorld(char* str, int ln) {
+	if(ln == 0) {
+		lcd_command(0x80);
+	}
+	if(ln == 1) {
+		lcd_command(0xc0);
+	}
+
+	char string[10];
+	if(ln) {
+		sprintf(string, str);
+	} else {
+		sprintf(string, str);
+	}
+
+	lcd_printEx(string, ln);
 }

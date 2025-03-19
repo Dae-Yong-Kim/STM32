@@ -66,6 +66,8 @@ void Error_Handler(void);
 #define USART_RX_GPIO_Port GPIOA
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
+#define Echo_Pin GPIO_PIN_7
+#define Echo_GPIO_Port GPIOA
 #define In4_Pin GPIO_PIN_10
 #define In4_GPIO_Port GPIOB
 #define TMS_Pin GPIO_PIN_13
@@ -78,6 +80,8 @@ void Error_Handler(void);
 #define In3_GPIO_Port GPIOB
 #define In2_Pin GPIO_PIN_5
 #define In2_GPIO_Port GPIOB
+#define Trig_Pin GPIO_PIN_6
+#define Trig_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
